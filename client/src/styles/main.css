@@ -1,0 +1,129 @@
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  .container {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+  
+  /* Header styles */
+  header {
+    background-color: #333;
+    color: white;
+    padding: 1rem 0;
+  }
+  
+  header .logo img {
+    width: 150px;
+  }
+  
+  header .nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  header .nav ul {
+    display: flex;
+    list-style-type: none;
+  }
+  
+  header .nav ul li {
+    margin-left: 20px;
+  }
+  
+  header .nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  header .header-buttons a {
+    background-color: #ff6f61;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  
+  /* Hero Section styles */
+  .hero {
+   
+    
+    padding: 80px 0;
+    color: white;
+    text-align: center;
+    position: relative;
+  }
+  
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);  /* Dark overlay */
+    z-index: 1;
+  }
+  
+  .hero .hero-content {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Text shadow for readability */
+  }
+  
+  .hero p {
+    font-size: 1.25rem;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Text shadow for readability */
+  }
+  
+  .hero .btn-primary {
+    background-color: #ff6f61;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  
+  .hero .btn-primary:hover {
+    background-color: #e55c4a;
+    transition: background-color 0.3s;
+  }
+  
+  /* Footer styles */
+  footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  footer p {
+    margin: 0;
+  }
+  
+  /* Button hover effects */
+  header .header-buttons a:hover {
+    background-color: #e55c4a;
+    transition: background-color 0.3s;
+  }
+  
