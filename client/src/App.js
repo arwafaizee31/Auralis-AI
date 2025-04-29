@@ -1,12 +1,26 @@
-import React from 'react';
-import Home from './Pages/Home';
-import './styles/main.css';  // Import your custom CSS here
+import React, { useMemo, useState } from 'react';
+import { ThemeProvider, CssBaseline, Button } from '@mui/material';
+import { getTheme } from './themes/theme';
 
 function App() {
+  const [mode, setMode] = useState('light');
+
+  const theme = useMemo(() => getTheme(mode), [mode]);
+
+  const toggleMode = () => {
+    setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
+  };
+
   return (
-    <div className="App">
-      <Home />
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <div style={{ padding: 20 }}>
+        <Button variant="contained" onClick={toggleMode}>
+          Toggle {mode === 'light' ? 'Dark' : 'Light'} Mode
+        </Button>
+        <h1>Hello, MUI Theme!</h1>
+      </div>
+    </ThemeProvider>
   );
 }
 

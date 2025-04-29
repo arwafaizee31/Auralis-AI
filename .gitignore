@@ -1,0 +1,13 @@
+# Node modules (React)
+client/node_modules/
+
+# Python virtual environment
+server/venv/
+
+# Python cache
+__pycache__/
+server/__pycache__/
+
+# Other system files
+.DS_Store
+.env
