@@ -1,5 +1,7 @@
 import React, { useMemo, useState } from 'react';
-import { ThemeProvider, CssBaseline, Button } from '@mui/material';
+
+import { ThemeProvider, CssBaseline, IconButton, Box } from '@mui/material';
+import { Brightness4, Brightness7 } from '@mui/icons-material';
 import { getTheme } from './themes/theme';
 
 function App() {
@@ -7,19 +9,21 @@ function App() {
 
   const theme = useMemo(() => getTheme(mode), [mode]);
 
-  const toggleMode = () => {
+  const toggleTheme = () => {
     setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
   };
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <div style={{ padding: 20 }}>
-        <Button variant="contained" onClick={toggleMode}>
-          Toggle {mode === 'light' ? 'Dark' : 'Light'} Mode
-        </Button>
-        <h1>Hello, MUI Theme!</h1>
-      </div>
+      <Box display="flex" justifyContent="flex-end" p={2}>
+        <IconButton onClick={toggleTheme} color="inherit">
+          {mode === 'light' ? <Brightness4 /> : <Brightness7 />}
+        </IconButton>
+      </Box>
+      <Box p={2}>
+        <h1>Welcome to My Themed App</h1>
+      </Box>
     </ThemeProvider>
   );
 }
