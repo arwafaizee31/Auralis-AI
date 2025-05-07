@@ -1,8 +1,8 @@
 from flask_sqlalchemy import SQLAlchemy
-from flask_security import UserMixin, RoleMixin
+from flask_security import UserMixin, RoleMixin, SQLAlchemyUserDatastore
 import uuid
 
-db = SQLAlchemy()
+from server import db
 
 # Association table
 roles_users = db.Table(
@@ -27,8 +27,18 @@ class User(db.Model, UserMixin):
     fs_uniquifier = db.Column(db.String(255), unique=True, nullable=False, default=lambda: str(uuid.uuid4()))
     roles = db.relationship('Role', secondary=roles_users, backref=db.backref('users', lazy='dynamic'))
 
+# ✅ Reference tables (not inside any class!)
+class Mood(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50), unique=True, nullable=False)
 
+class Genre(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50), unique=True, nullable=False)
 
-# Setup Flask-Security datastore
-from flask_security import SQLAlchemyUserDatastore
+class Tempo(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50), unique=True, nullable=False)
+
+# Flask-Security User Datastore (only needs User and Role)
 user_datastore = SQLAlchemyUserDatastore(db, User, Role)
