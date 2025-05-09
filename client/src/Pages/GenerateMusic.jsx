@@ -1,11 +1,15 @@
 import React, { useEffect , useState } from "react";
 import axios from 'axios';
 import DurationSlider from '../components/DurationSlider'; // adjust the path as needed
+import SelectableCardGrid from '../components/SelectableCardGrid';
+import TempoSelector from '../components/TempoSelector'; // adjust path if needed
 
 const GenerateMusic = () => {
   const [genres, setGenres] = useState([]);
   const [moods, setMoods] = useState([]);
-  const [tempos, setTempos] = useState([]);
+
+  const [selectedGenres, setSelectedGenres] = useState([]);
+  const [selectedMoods, setSelectedMoods] = useState([]);
   const [formData, setFormData] = useState({
     genre: "",
     mood: "",
@@ -30,15 +34,7 @@ const GenerateMusic = () => {
         console.error("Error fetching moods:", err);
       });
   }, []);
-  useEffect(() => {
-    axios.get('http://127.0.0.1:5000/api/tempo')
-      .then(res => {
-        setTempos(res.data);
-      })
-      .catch(err => {
-        console.error("Error fetching tempos:", err);
-      });
-  }, []);
+  
   const [audioUrl, setAudioUrl] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -53,14 +49,25 @@ const GenerateMusic = () => {
     e.preventDefault();
     setLoading(true);
     setAudioUrl(null);
-    console.log("Submitting form data:", formData);
+   
+      const payload = {
+        ...formData,
+        genre: selectedGenres.join(", "),
+  mood: selectedMoods.join(", "),
+      };
+      
+   
+  
+    console.log("Submitting form data:", payload);
+    console.log("Genres:", selectedGenres);
+    console.log("Moods:", selectedMoods);
     try {
-      const response = await fetch("https://058e-34-70-125-206.ngrok-free.app/generate-music", {
+      const response = await fetch("https://aa2d-34-138-183-227.ngrok-free.app/generate-music", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       });
   
       if (!response.ok) {
@@ -80,72 +87,62 @@ const GenerateMusic = () => {
       setLoading(false);
     }
   };
-
-  return (
-    <div style={{ padding: "20px", fontFamily: "sans-serif" }}>
-      <h2>Music Generator</h2>
-      <form onSubmit={handleSubmit}>
-      <select
-      name="genre"
-      value={formData.genre}
-      onChange={handleChange}
-      required
-    >
-      <option value="">Select Genre</option>
-      {genres.map((genre) => (
-        <option key={genre.name} value={genre.name}>
-          {genre.name}
-        </option>
-      ))}
-    </select><br /><br />
-    <select
-      name="mood"
-      value={formData.mood}
-      onChange={handleChange}
-      required
-    >
-      <option value="">Select Mood</option>
-      {moods.map((mood) => (
-        <option key={mood.name} value={mood.name}>
-          {mood.name}
-        </option>
-      ))}
-    </select><br /><br />
-    <select
-      name="tempo"
-      value={formData.tempo}
-      onChange={handleChange}
-      required
-    >
-      <option value="">Select Tempo</option>
-      {tempos.map((tempo) => (
-        <option key={tempo.name} value={tempo.name}>
-          {tempo.name}
-        </option>
-      ))}
-    </select><br /><br />
-    <DurationSlider
-  value={formData.duration}
-  onChange={(newDuration) =>
-    setFormData({ ...formData, duration: newDuration })
-  }
-  min={1}
-  max={1000}
-  step={1}
-/><br /><br />
-        <button type="submit" disabled={loading}>
-          {loading ? "Generating..." : "Generate Music"}
-        </button>
-      </form>
-
-      {audioUrl && (
-        <div style={{ marginTop: "20px" }}>
-          <h3>Generated Music:</h3>
-          <audio controls src={audioUrl}></audio>
+return(
+  <div style={{ padding: "20px", fontFamily: "sans-serif" }}>
+    <h2>Music Generator</h2>
+    <form onSubmit={handleSubmit}>
+    
+      {/* Duration and Tempo side by side */}
+      <div style={{ display: 'flex', gap: '2rem', marginBottom: '2rem', alignItems: 'center' }}>
+        <DurationSlider
+          value={formData.duration}
+          onChange={(newDuration) =>
+            setFormData({ ...formData, duration: newDuration })
+          }
+          min={1}
+          max={1000}
+          step={1}
+        />
+        <div>
+          <label style={{ fontWeight: 'bold' }}>Select Tempo</label>
+          <TempoSelector
+  selectedTempo={formData.tempo}
+  onTempoChange={(tempo) => setFormData({ ...formData, tempo })}
+/>
         </div>
-      )}
-    </div>
-  );
+        <button type="submit" disabled={loading}>
+        {loading ? "Generating..." : "Generate Music"}
+      </button>
+      </div>
+
+      {/* Genre Selection */}
+      <h2>Select Genre</h2>
+      <SelectableCardGrid
+        apiEndpoint="/api/genres"
+        type="genres"
+        onSelectionChange={setSelectedGenres}
+      />
+
+      {/* Mood Selection */}
+      <h2>Select Mood</h2>
+      <SelectableCardGrid
+        apiEndpoint="/api/mood"
+        type="moods"
+        onSelectionChange={setSelectedMoods}
+      />
+
+      <br /><br />
+      
+    </form>
+
+    {audioUrl && (
+      <div style={{ marginTop: "20px" }}>
+        <h3>Generated Music:</h3>
+        <audio controls src={audioUrl}></audio>
+      </div>
+    )}
+  </div>
+);
 };
 
 export default GenerateMusic;

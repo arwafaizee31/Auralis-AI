@@ -1,0 +1,28 @@
+/* DurationSlider.css */
+
+.duration-slider-container {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #1e1e2f;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.2);
+  }
+  
+  .duration-label {
+    color: #00ffff;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .duration-time {
+    font-size: 2rem;
+    color: #ffd700;
+    margin-bottom: 1rem;
+  }
+  
+  .duration-range {
+    width: 100%;
+    accent-color: #00ffff;
+  }
+  

@@ -1,53 +1,26 @@
 import React from 'react';
-import { Slider, Typography, Input, Grid } from '@mui/material';
+import '../styles/DurationSlider.css';
 
-const DurationSlider = ({ value, onChange, min = 1, max = 10, step = 1 }) => {
-  const handleSliderChange = (event, newValue) => {
-    onChange(newValue);
-  };
-
-  const handleInputChange = (event) => {
-    const newValue = event.target.value === '' ? '' : Number(event.target.value);
-    onChange(newValue);
-  };
-
-  const handleBlur = () => {
-    if (value < min) {
-      onChange(min);
-    } else if (value > max) {
-      onChange(max);
-    }
+const DurationSlider = ({ value, onChange, min = 30, max = 300, step = 1 }) => {
+  const formatTime = (seconds) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = String(seconds % 60).padStart(2, '0');
+    return `${mins}:${secs}`;
   };
 
   return (
-    <div>
-      <Typography gutterBottom>Duration (minutes)</Typography>
-      <Grid container spacing={2} alignItems="center">
-        <Grid item xs>
-          <Slider
-            value={value}
-            onChange={handleSliderChange}
-            step={step}
-            min={min}
-            max={max}
-            sx={{ width: '100%' }} // Ensure slider takes full width of the container
-          />
-        </Grid>
-        <Grid item>
-          <Input
-            value={value}
-            margin="dense"
-            onChange={handleInputChange}
-            onBlur={handleBlur}
-            inputProps={{
-              step,
-              min,
-              max,
-              type: 'number',
-            }}
-          />
-        </Grid>
-      </Grid>
+    <div className="duration-slider-container">
+      <label className="duration-label">CHOOSE THE LENGTH</label>
+      <div className="duration-time">{formatTime(value)}</div>
+      <input
+        type="range"
+        min={min}
+        max={max}
+        step={step}
+        value={value}
+        onChange={(e) => onChange(Number(e.target.value))}
+        className="duration-range"
+      />
     </div>
   );
 };
