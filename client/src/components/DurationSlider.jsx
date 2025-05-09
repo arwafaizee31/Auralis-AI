@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/DurationSlider.css';
 
-const DurationSlider = ({ value, onChange, min = 30, max = 300, step = 1 }) => {
+const DurationSlider = ({ value, onChange, min = 1, max = 30, step = 1 }) => {
   const formatTime = (seconds) => {
     const mins = Math.floor(seconds / 60);
     const secs = String(seconds % 60).padStart(2, '0');
@@ -10,7 +10,6 @@ const DurationSlider = ({ value, onChange, min = 30, max = 300, step = 1 }) => {
 
   return (
     <div className="duration-slider-container">
-      <label className="duration-label">CHOOSE THE LENGTH</label>
       <div className="duration-time">{formatTime(value)}</div>
       <input
         type="range"
@@ -24,5 +23,6 @@ const DurationSlider = ({ value, onChange, min = 30, max = 300, step = 1 }) => {
     </div>
   );
 };
+
 
 export default DurationSlider;

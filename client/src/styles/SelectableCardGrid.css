@@ -3,6 +3,7 @@
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 2.5rem;
     padding: 1rem;
+    margin-bottom: 2rem;
   }
   
   /* Mobile-specific: 1 card per row */
@@ -29,7 +30,7 @@
   }
   
   .selected {
-    outline: 5px solid #02afe9;
+    outline: 5px solid white;
   }
   
   .label {
@@ -47,7 +48,7 @@
   
   .tick {
     font-size: 1.2rem;
-    color: #00ffcc;
+    color: white;
   }
   
   .toggle-wrapper {
@@ -58,7 +59,7 @@
   
   .toggle-btn {
     padding: 0.6rem 1rem;
-    background-color: #00ffcc;
+    background-color: white;
     color: black;
     font-weight: bold;
     border: none;

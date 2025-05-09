@@ -46,7 +46,7 @@ const SelectableCardGrid = ({ apiEndpoint, type, onSelectionChange }) => {
     .replace(/\s+/g, "-");  
   
    
-   console.log(formattedName);
+  
     return `/images/${type}/${formattedName}.jpg`;
   };
 
