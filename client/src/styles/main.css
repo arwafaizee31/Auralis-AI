@@ -7,8 +7,10 @@
   
   body {
     font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: rgba(3,3,3,255);
+    color: white;
+    
+
   }
   
   .container {
@@ -127,3 +129,12 @@
     transition: background-color 0.3s;
   }
   
+  .gen-btn{
+    padding: 0.6rem 1rem;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }

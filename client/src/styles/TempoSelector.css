@@ -1,0 +1,30 @@
+/* TempoSelector.css */
+
+.tempo-selector-container {
+    padding: 1rem;
+    background-color: #080707;
+    border-radius: 12px;
+    margin-top: 1rem;
+   
+  }
+  
+  .tempo-option {
+    font-size: 1.8rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    background-color: transparent;
+  }
+  
+  .tempo-option:hover {
+    background-color: rgba(0, 255, 255, 0.1);
+  }
+  
+  .tempo-option.selected {
+    color: #00ffcc;
+    background-color: rgba(0, 255, 255, 0.15);
+    border: 2px solid #00ffcc;
+  }
+  

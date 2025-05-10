@@ -2,6 +2,8 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom"; // Link component for navigation
 import AuthContext from "../context/AuthContext"; // Import the context
+import "./Navbar.css";
+
 const Navbar = () => {
   const { authStatus } = useContext(AuthContext); // Use the authStatus from context
   return (
@@ -15,7 +17,10 @@ const Navbar = () => {
         alignItems: "center",
       }}
     >
-      <ul style={{ listStyleType: "none", gap: "20px", display: "flex" }}>
+      <ul
+        style={{ listStyleType: "none", gap: "20px", display: "flex" }}
+        className="navbar-list"
+      >
         <li>
           <Link to="/" style={{ color: "#fff", textDecoration: "none" }}>
             Home
@@ -81,7 +86,7 @@ const Navbar = () => {
         )}
       </ul>
     </nav>
-  );
+  )
 };
 
 export default Navbar;
