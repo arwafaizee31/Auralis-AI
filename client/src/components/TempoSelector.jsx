@@ -20,7 +20,6 @@ const TempoSelector = ({ selectedTempo, onTempoChange }) => {
      
       <div style={{ display: 'flex', gap: '2rem', marginTop: '1rem', flexWrap: 'wrap' }}>
         {tempos.map((tempo) => (
-          <label
             key={tempo.name}
             onClick={() => onTempoChange(tempo.name)}
             className={`tempo-option ${selectedTempo === tempo.name ? 'selected' : ''}`}
