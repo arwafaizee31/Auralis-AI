@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from "react";
 import {
   Accordion,
   AccordionSummary,
@@ -10,16 +10,24 @@ import {
   createTheme,
   Box,
   Fade,
-} from '@mui/material';
-import { Link } from 'react-router-dom'; // for navigation links
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+} from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { styled } from "@mui/system";
 
-// Define the dark theme
-const darkTheme = createTheme({
+// Custom Theme
+const customTheme = createTheme({
   palette: {
-    mode: 'dark',
+    mode: "dark",
     primary: {
-      main: '#90caf9',
+      main: "#802BB1",
+    },
+    background: {
+      default: "#0e0923",
+      paper: "#4C495D",
+    },
+    text: {
+      primary: "#D1D7E0",
+      secondary: "#564F6F",
     },
   },
   typography: {
@@ -27,7 +35,28 @@ const darkTheme = createTheme({
   },
 });
 
-// Define the FAQ data
+// Gradient Heading Style
+const GradientHeading = styled(Typography)({
+  fontWeight: "bold",
+  fontSize: "2.5rem",
+  textAlign: "center",
+  marginBottom: "2rem",
+  background: "linear-gradient(90deg, #29abe2, #8e98df, #cda9e8, #f2bbb7, #fff893)",
+
+  WebkitBackgroundClip: "text",
+  WebkitTextFillColor: "transparent",
+});
+
+// Styled Accordion Summary with rotating icon
+const StyledAccordionSummary = styled(AccordionSummary)(({ expand }) => ({
+  '& .MuiAccordionSummary-expandIconWrapper': {
+    transform: expand === "true" ? "rotate(180deg)" : "rotate(0deg)",
+    transition: "transform 0.3s ease",
+    color: "#D1D7E0",
+  },
+}));
+
+// FAQ content
 const faqs = [
   {
     question: "What is this AI music generator?",
@@ -61,50 +90,55 @@ const faqs = [
   },
 ];
 
-// FaqPage component
 export default function FaqPage() {
+  const [expandedStates, setExpandedStates] = useState(
+    Array(faqs.length).fill(false)
+  );
+
+  const handleAccordionToggle = (index) => (event, isExpanded) => {
+    const newStates = [...expandedStates];
+    newStates[index] = isExpanded;
+    setExpandedStates(newStates);
+  };
+
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={customTheme}>
       <CssBaseline />
-      {/* Main Content Section */}
       <Box
         sx={{
           py: 5,
-          minHeight: '100vh',
-          background: 'linear-gradient(to bottom right, #1e1e1e, #2a2a40)',
+          minHeight: "100vh",
+          backgroundColor: customTheme.palette.background.default,
         }}
       >
         <Container maxWidth="md">
-          <Typography
-            variant="h3"
-            align="center"
-            gutterBottom
-            sx={{
-              color: '#90caf9',
-              fontWeight: 'bold',
-              textShadow: '0 0 8px rgba(144,202,249,0.3)',
-              mb: 5,
-            }}
-          >
+          <GradientHeading>
             Frequently Asked Questions
-          </Typography>
+          </GradientHeading>
+
           {faqs.map((faq, index) => (
             <Fade in={true} timeout={500 + index * 100} key={index}>
               <Accordion
+                expanded={expandedStates[index]}
+                onChange={handleAccordionToggle(index)}
                 sx={{
-                  background: 'rgba(255, 255, 255, 0.05)',
-                  backdropFilter: 'blur(10px)',
+                  backgroundColor: "#4C495D",
                   borderRadius: 2,
-                  color: '#fff',
+                  color: "#D1D7E0",
                   mb: 2,
-                  boxShadow: '0 4px 20px rgba(0,0,0,0.4)',
+                  boxShadow: "0 4px 20px rgba(0,0,0,0.5)",
                 }}
               >
-                <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ color: '#90caf9' }} />}>
-                  <Typography sx={{ fontWeight: 600 }}>{faq.question}</Typography>
-                </AccordionSummary>
+                <StyledAccordionSummary
+                  expand={expandedStates[index] ? "true" : "false"}
+                  expandIcon={<ExpandMoreIcon />}
+                >
+                  <Typography sx={{ fontWeight: 700, fontSize: "1.1rem" }}>
+                    {faq.question}
+                  </Typography>
+                </StyledAccordionSummary>
                 <AccordionDetails>
-                  <Typography variant="body1" sx={{ opacity: 0.9 }}>
+                  <Typography sx={{ opacity: 0.9, fontSize: "0.95rem" }}>
                     {faq.answer}
                   </Typography>
                 </AccordionDetails>

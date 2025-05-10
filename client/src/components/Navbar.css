@@ -1,0 +1,30 @@
+/* src/components/Navbar.css */
+
+.navbar {
+    background-color: rgba(4, 11, 19, 1);
+    padding: 1rem 2rem;
+    color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  .navbar-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  
+  .nav-link:hover {
+    color: #8e98df;
+  }
+  

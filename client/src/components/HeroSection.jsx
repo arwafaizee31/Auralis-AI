@@ -1,16 +1,19 @@
 import React from 'react';
+import './HeroSection.css';
+import backgroundImage from '../assets/herosection_image.jpg'; // ✅ correct path
 
 const HeroSection = () => {
   return (
-    <section className="hero">
-      <div className="container">
-        <div className="hero-content">
-          <h1>AI Application Generator</h1>
-          <p>Create intelligent applications faster with Xaito</p>
-          <a href="#get-started" className="btn-primary">Get Started</a>
-        </div>
+    <div
+      className="home-container"
+      style={{ backgroundImage: `url(${backgroundImage})` }} // ✅ inline style
+    >
+      <div className="aura-background"></div> {/* 🔥 Animated aura */}
+      <div className="content">
+        <h1>Welcome to Auralis: The Musical AI</h1>
+        <p>Feel free to explore and generate amazing music through the power of AI!</p>
       </div>
-    </section>
+    </div>
   );
 };
 
