@@ -14,8 +14,13 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import './styles/main.css'; // Your custom CSS
 
+import { AuthProvider } from './context/AuthContext';
+import LoginForm from './components/LoginForm';
+import RegisterForm from './components/RegisterForm';
+
 function App() {
   return (
+    <AuthProvider> 
     <>
       {/* Navigation bar */}
       <Navbar />
@@ -30,12 +35,15 @@ function App() {
         <Route path="/faq" element={<FAQ />} />
         <Route path="/account" element={<Account />} />
         <Route path="/about" element={<About />} />
+         {/* ✅ Add these routes */}
+  <Route path="/login" element={<LoginForm />} />
+  <Route path="/register" element={<RegisterForm />} />
       </Routes>
 
       {/* Footer */}
       <Footer />
     </>
-
+    </AuthProvider> 
   );
 }
 
