@@ -1,9 +1,15 @@
 // src/pages/Home.jsx
 import React, { useState, useRef } from 'react';
 import HeroSection from '../components/HeroSection';
+import { Link } from 'react-router-dom';
 import './Home.css';
 
 import diverseMusicImage from '../assets/diverse_music_2X.jpg';
+import home1 from '../assets/home1.jpg';
+import home2 from '../assets/home2.jpg';
+import home3 from '../assets/home3.jpg';
+import home4 from '../assets/home4.jpg';
+import home5 from '../assets/home5.jpg';
 import img1 from '../assets/editor.jpg';
 import img2 from '../assets/group.jpg';
 import img3 from '../assets/performer.jpg';
@@ -67,29 +73,34 @@ const Home = () => {
 
       {/* Feature Section */}
       <div className="container">
+    
+    
+    
         <div className="feature-section">
           <div
             className="feature-card card1"
-            style={{ backgroundImage: `url(${diverseMusicImage})` }}
+            style={{ backgroundImage: `url(${home1})` }}
           >
             <div className="overlay">
               <h2>Generate more diverse and high-quality music</h2>
             </div>
           </div>
 
-          <div className="feature-card card2">
+          <div className="feature-card card2"
+          style={{ backgroundImage: `url(${home5})` }}>
             <div className="overlay">
               <h2>Mix genres with ease</h2>
             </div>
           </div>
 
-          <div className="feature-card card3">
+          <div className="feature-card card3"    style={{ backgroundImage: `url(${home4})` }}
+          >
             <div className="overlay">
               <h2>Discover one-of-a-kind tracks</h2>
             </div>
           </div>
 
-          <div className="feature-card card4">
+          <div className="feature-card card4"  style={{ backgroundImage: `url(${home3})` }}>
             <div className="overlay">
               <h2>Customize tracks to perfection</h2>
             </div>
@@ -107,7 +118,7 @@ const Home = () => {
             music to use in your songs, projects and videos. Distribute your music
             anywhere and earn money on the royalties forever.
           </p>
-          <button className="generate-button">Start Generating</button>
+          <button className="generate-button"><Link to="/gen-music">Start Generating</Link></button>
         </div>
 
         <div className="music-intro-images">
