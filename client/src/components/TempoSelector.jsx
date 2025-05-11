@@ -8,16 +8,20 @@ const TempoSelector = ({ selectedTempo, onTempoChange }) => {
   useEffect(() => {
     axios.get('http://127.0.0.1:5000/api/tempo')
       .then(res => {
-        setTempos(res.data);
+        console.log("Tempo API response:", res);
+        if (res && res.data) {
+          setTempos(res.data);
+        } else {
+          console.warn("Received unexpected response:", res);
+        }
       })
       .catch(err => {
         console.error("Error fetching tempos:", err);
       });
   }, []);
-
+  
   return (
     <div className="tempo-selector-container">
-     
       <div style={{ display: 'flex', gap: '2rem', marginTop: '1rem', flexWrap: 'wrap' }}>
         {tempos.map((tempo) => (
           <label

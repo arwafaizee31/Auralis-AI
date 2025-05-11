@@ -23,6 +23,12 @@ body {
   z-index: 10;
 }
 
+.feature-info{
+  background: linear-gradient(90deg, #8E98DF 0%, #CDA9E8 30%, #F2BBB7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 /* Feature Section Grid */
 .feature-section {
   display: grid;

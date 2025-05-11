@@ -46,7 +46,7 @@ const GenerateMusic = () => {
      console.log(payload);
 
     try {
-      const response = await fetch("https://715b-34-9-162-185.ngrok-free.app/generate-music", {
+      const response = await fetch("https://0c0c-34-81-223-202.ngrok-free.app/generate-music", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),

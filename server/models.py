@@ -1,7 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask_security import UserMixin, RoleMixin, SQLAlchemyUserDatastore
 import uuid
-
+from werkzeug.security import generate_password_hash, check_password_hash
 from server import db
 
 # Association table
@@ -26,8 +26,10 @@ class User(db.Model, UserMixin):
     confirmed_at = db.Column(db.DateTime())
     fs_uniquifier = db.Column(db.String(255), unique=True, nullable=False, default=lambda: str(uuid.uuid4()))
     roles = db.relationship('Role', secondary=roles_users, backref=db.backref('users', lazy='dynamic'))
-
-# ✅ Reference tables (not inside any class!)
+    def check_password(self, password):
+        """Check if the given password matches the stored hash."""
+        return check_password_hash(self.password, password)
+# Reference tables (not inside any class!)
 class Mood(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), unique=True, nullable=False)
