@@ -1,5 +1,6 @@
 // src/pages/Home.jsx
 import React, { useState, useRef } from 'react';
+
 import HeroSection from '../components/HeroSection';
 import './Home.css';
 
