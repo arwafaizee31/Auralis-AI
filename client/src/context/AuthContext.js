@@ -9,9 +9,16 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const check = async () => {
-      const data = await checkAuth();
-      if (data.message === 'User is authenticated') {
-        setAuthStatus(true);
+      try {
+        const data = await checkAuth();
+        if (data?.message === 'User is authenticated') {
+          setAuthStatus(true);
+        } else {
+          setAuthStatus(false);
+        }
+      } catch (err) {
+        console.error("Auth check failed:", err);
+        setAuthStatus(false);
       }
     };
     check();

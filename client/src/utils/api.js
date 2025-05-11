@@ -1,40 +1,40 @@
-// src/utils/api.js
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api';  // Update with your API URL if different
+const API_URL = 'http://localhost:5000/api'; // Base API path
 
-// Setup Axios instance with credentials
+// Axios instance with base URL and credentials
 const api = axios.create({
   baseURL: API_URL,
-  withCredentials: true,  // This ensures cookies (including CSRF token) are sent with requests
+  withCredentials: true, // Enables cookie sending for sessions
 });
 
 // Login function
 export const loginUser = async (email, password) => {
   try {
-    const response = await api.post('http://localhost:5000/login', { email, password });
+    const response = await api.post('/login', { email, password });
     return response.data;
   } catch (error) {
-    return error.response.data;
+    return error.response?.data || { error: 'Login failed' };
   }
 };
 
+// Register function
 export const registerUser = async (email, password) => {
-    try {
-      const response = await api.post('http://localhost:5000/register', { email, password });
-      return response.data;  // This is correct for Axios
-    } catch (error) {
-      return error.response?.data || { error: 'Registration failed' };
-    }
-  };
-  
+  try {
+    const response = await api.post('/register', { email, password });
+    return response.data;
+  } catch (error) {
+    return error.response?.data || { error: 'Registration failed' };
+  }
+};
 
 // Check authentication
 export const checkAuth = async () => {
   try {
-    const response = await api.get('http://localhost:5000/check-auth');
+    const response = await api.get('/check-auth');
     return response.data;
   } catch (error) {
-    return error.response.data;
+    console.error("checkAuth failed:", error);
+    return error.response?.data || { message: 'Not authenticated' };
   }
 };
