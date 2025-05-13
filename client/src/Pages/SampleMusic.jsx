@@ -1,173 +1,411 @@
-// SampleMusicPage.jsx
-import React, { useState, useRef, useEffect } from 'react';
-import WaveSurfer from 'wavesurfer.js';
+import React, { useState, useEffect, useRef } from "react";
+import "../styles/SampleMusic.css";
 
-const GENRES = ['Techno', 'Christmas', 'Hip Hop', 'Ambient', 'Latin'];
+const genres = ["Indian Classical", "Rock", "Pop", "Jazz", "Blues"];
 
-const songs = {
-  Techno: [
+const sampleData = {
+  "Indian Classical": [
     {
-      id: '001',
-      title: 'Techno Beats',
-      genre: 'Techno & Trance',
-      mood: 'Hopeful',
-      tempo: '134 BPM',
-      key: 'F#m',
-      duration: '3:01',
-      file: '/audio/techno.mp3',
-      image: '/images/techno.jpg',
+      id: 1,
+      title: "Sample 1",
+      mood: "Calm, Meditative",
+      duration: "6:45",
+      bpm: "80 BPM",
+      key: "C",
+      genre: "Indian Classical",
+      audioSrc: "/audio/ambient.mp3",
+      imageSrc: "/images/indian1.jpg",
     },
+    {
+      id: 2,
+      title: "Sample 2",
+      mood: "Peaceful, Uplifting",
+      duration: "5:30",
+      bpm: "85 BPM",
+      key: "F",
+      genre: "Indian Classical",
+      audioSrc: "/audio/raag2.mp3",
+      imageSrc: "/images/indian2.jpg",
+    },
+    {
+      id: 3,
+      title: "Sample 3",
+      mood: "Peaceful, Uplifting",
+      duration: "5:30",
+      bpm: "85 BPM",
+      key: "F",
+      genre: "Indian Classical",
+      audioSrc: "/audio/raag2.mp3",
+      imageSrc: "/images/indian3.jpg",
+    },
+    {
+      id: 4,
+      title: "Sample 4",
+      mood: "Peaceful, Uplifting",
+      duration: "5:30",
+      bpm: "85 BPM",
+      key: "F",
+      genre: "Indian Classical",
+      audioSrc: "/audio/raag2.mp3",
+      imageSrc: "/images/indian4.jpg",
+    },
+    {
+      id: 5,
+      title: "Sample 5",
+      mood: "Peaceful, Uplifting",
+      duration: "5:30",
+      bpm: "85 BPM",
+      key: "F",
+      genre: "Indian Classical",
+      audioSrc: "/audio/raag2.mp3",
+      imageSrc: "/images/indian5.jpg",
+    },
+  
   ],
-  Christmas: [
+  Rock: [
     {
-      id: '002',
-      title: 'Christmas Orchestra',
-      genre: 'Christmas × Orchestral',
-      mood: 'Hopeful',
-      tempo: '90 BPM',
-      key: 'F',
-      duration: '3:03',
-      file: '/audio/christmas.mp3',
-      image: '/images/christmas.jpg',
+      id: 6,
+      title: "Sample 1",
+      mood: "Energetic, Powerful",
+      duration: "3:15",
+      bpm: "140 BPM",
+      key: "E",
+      genre: "Rock",
+      audioSrc: "/audio/rock1.mp3",
+      imageSrc: "/images/rock1.jpg",
     },
+    {
+      id: 7,
+      title: "Sample 2",
+      mood: "Energetic, Powerful",
+      duration: "3:15",
+      bpm: "140 BPM",
+      key: "E",
+      genre: "Rock",
+      audioSrc: "/audio/rock1.mp3",
+      imageSrc: "/images/rock2.jpg",
+    },
+    {
+      id: 8,
+      title: "Sample 3",
+      mood: "Energetic, Powerful",
+      duration: "3:15",
+      bpm: "140 BPM",
+      key: "E",
+      genre: "Rock",
+      audioSrc: "/audio/rock1.mp3",
+      imageSrc: "/images/rock3.jpg",
+    },
+    {
+      id: 9,
+      title: "Sample 4",
+      mood: "Energetic, Powerful",
+      duration: "3:15",
+      bpm: "140 BPM",
+      key: "E",
+      genre: "Rock",
+      audioSrc: "/audio/rock1.mp3",
+      imageSrc: "/images/rock4.jpg",
+    },
+    {
+      id: 10,
+      title: "Sample 5",
+      mood: "Energetic, Powerful",
+      duration: "3:15",
+      bpm: "140 BPM",
+      key: "E",
+      genre: "Rock",
+      audioSrc: "/audio/rock1.mp3",
+      imageSrc: "/images/rock5.jpg",
+    },
+    // ...add 4 more
   ],
-  'Hip Hop': [
+  Pop: [
     {
-      id: '003',
-      title: 'Urban Pop Vibes',
-      genre: 'Hip Hop × Pop',
-      mood: 'Hopeful',
-      tempo: '140 BPM',
-      key: 'D',
-      duration: '3:00',
-      file: '/audio/hiphop.mp3',
-      image: '/images/hiphop.jpg',
+      id: 1,
+      title: "Sample 1",
+      mood: "Bright, Happy",
+      duration: "3:45",
+      bpm: "120 BPM",
+      key: "G",
+      genre: "Pop",
+      audioSrc: "/audio/pop1.mp3",
+      imageSrc: "/images/pop1.jpg",
     },
+    {
+      id: 2,
+      title: "Sample 2",
+      mood: "Bright, Happy",
+      duration: "3:45",
+      bpm: "120 BPM",
+      key: "G",
+      genre: "Pop",
+      audioSrc: "/audio/pop1.mp3",
+      imageSrc: "/images/pop2.jpg",
+    },
+    {
+      id: 3,
+      title: "Sample 3",
+      mood: "Bright, Happy",
+      duration: "3:45",
+      bpm: "120 BPM",
+      key: "G",
+      genre: "Pop",
+      audioSrc: "/audio/pop1.mp3",
+      imageSrc: "/images/pop3.jpg",
+    },
+    {
+      id: 4,
+      title: "Sample 4",
+      mood: "Bright, Happy",
+      duration: "3:45",
+      bpm: "120 BPM",
+      key: "G",
+      genre: "Pop",
+      audioSrc: "/audio/pop1.mp3",
+      imageSrc: "/images/pop4.jpg",
+    },
+    {
+      id: 5,
+      title: "Sample 5",
+      mood: "Bright, Happy",
+      duration: "3:45",
+      bpm: "120 BPM",
+      key: "G",
+      genre: "Pop",
+      audioSrc: "/audio/pop1.mp3",
+      imageSrc: "/images/pop5.jpg",
+    },
+    // ...add more
   ],
-  Ambient: [
+  Jazz: [
     {
-      id: '005',
-      title: 'Dream Space',
-      genre: 'Electronica × Ambient',
-      mood: 'Hopeful',
-      tempo: '110 BPM',
-      key: 'Bm',
-      duration: '2:56',
-      file: '/audio/ambient.mp3',
-      image: '/images/ambient.jpg',
+      id: 1,
+      title: "Smooth Jazz Nights",
+      mood: "Chill, Classy",
+      duration: "4:20",
+      bpm: "100 BPM",
+      key: "Bb",
+      genre: "Jazz",
+      audioSrc: "/audio/jazz1.mp3",
+      imageSrc: "/images/jazz1.jpg",
     },
+    {
+      id: 2,
+      title: "Smooth Jazz Nights",
+      mood: "Chill, Classy",
+      duration: "4:20",
+      bpm: "100 BPM",
+      key: "Bb",
+      genre: "Jazz",
+      audioSrc: "/audio/jazz1.mp3",
+      imageSrc: "/images/jazz2.jpg",
+    },
+    {
+      id: 3,
+      title: "Smooth Jazz Nights",
+      mood: "Chill, Classy",
+      duration: "4:20",
+      bpm: "100 BPM",
+      key: "Bb",
+      genre: "Jazz",
+      audioSrc: "/audio/jazz1.mp3",
+      imageSrc: "/images/jazz3.jpg",
+    },
+    {
+      id: 4,
+      title: "Smooth Jazz Nights",
+      mood: "Chill, Classy",
+      duration: "4:20",
+      bpm: "100 BPM",
+      key: "Bb",
+      genre: "Jazz",
+      audioSrc: "/audio/jazz1.mp3",
+      imageSrc: "/images/jazz4.jpg",
+    },
+    {
+      id: 5,
+      title: "Smooth Jazz Nights",
+      mood: "Chill, Classy",
+      duration: "4:20",
+      bpm: "100 BPM",
+      key: "Bb",
+      genre: "Jazz",
+      audioSrc: "/audio/jazz1.mp3",
+      imageSrc: "/images/jazz5.jpg",
+    },
+    // ...add more
   ],
-  Latin: [
+  Blues: [
     {
-      id: '006',
-      title: 'Latin Chill',
-      genre: 'Beats × Latin',
-      mood: 'Hopeful',
-      tempo: '80 BPM',
-      key: 'G',
-      duration: '3:02',
-      file: '/audio/latin.mp3',
-      image: '/images/latin.jpg',
+      id: 1,
+      title: "Sample 1",
+      mood: "Melancholic, Soulful",
+      duration: "5:00",
+      bpm: "90 BPM",
+      key: "A",
+      genre: "Blues",
+      audioSrc: "/audio/blues1.mp3",
+      imageSrc: "/images/blues3.jpg",
     },
+    {
+      id: 2,
+      title: "Sample 2",
+      mood: "Melancholic, Soulful",
+      duration: "5:00",
+      bpm: "90 BPM",
+      key: "A",
+      genre: "Blues",
+      audioSrc: "/audio/blues1.mp3",
+      imageSrc: "/images/blues2.jpg",
+    },
+    {
+      id: 3,
+      title: "Sample 3",
+      mood: "Melancholic, Soulful",
+      duration: "5:00",
+      bpm: "90 BPM",
+      key: "A",
+      genre: "Blues",
+      audioSrc: "/audio/blues1.mp3",
+      imageSrc: "/images/blues1.jpg",
+    },
+    {
+      id: 4,
+      title: "Sample 4",
+      mood: "Melancholic, Soulful",
+      duration: "5:00",
+      bpm: "90 BPM",
+      key: "A",
+      genre: "Blues",
+      audioSrc: "/audio/blues1.mp3",
+      imageSrc: "/images/blues4.jpg",
+    },
+    {
+      id: 5,
+      title: "Sample 5",
+      mood: "Melancholic, Soulful",
+      duration: "5:00",
+      bpm: "90 BPM",
+      key: "A",
+      genre: "Blues",
+      audioSrc: "/audio/blues1.mp3",
+      imageSrc: "/images/blues5.jpg",
+    },
+    // ...add more
   ],
 };
 
-const AudioPlayer = ({ src }) => {
-  const waveformRef = useRef(null);
-  const wavesurfer = useRef(null);
+
+function SampleMusic() {
+  const [activeGenre, setActiveGenre] = useState(genres[0]);
+  const audioRefs = useRef({});
+  const lineRefs = useRef({});
 
   useEffect(() => {
-    if (!src || !waveformRef.current) return;
+    const currentAudios = audioRefs.current;
+    const currentLines = lineRefs.current;
   
-    let isMounted = true;
+    const updateProgress = (id) => {
+      const audio = currentAudios[id];
+      const line = currentLines[id];
   
-    // Clean up any existing wavesurfer
-    if (wavesurfer.current) {
-      try {
-        wavesurfer.current.destroy();
-      } catch (err) {
-        console.warn('WaveSurfer destroy failed:', err);
-      }
-    }
-  
-    // Create WaveSurfer instance
-    wavesurfer.current = WaveSurfer.create({
-      container: waveformRef.current,
-      waveColor: '#ccc',
-      progressColor: '#1DB954',
-      height: 60,
-      responsive: true,
-    });
-  
-    // Load audio
-    try {
-      wavesurfer.current.load(src);
-    } catch (e) {
-      if (e.name !== 'AbortError') console.error('WaveSurfer load error:', e);
-    }
-  
-    // Cleanup
-    return () => {
-      if (isMounted) {
-        try {
-          wavesurfer.current.destroy();
-          wavesurfer.current = null;
-        } catch (err) {
-          console.warn('WaveSurfer cleanup failed:', err);
+      if (audio && line) {
+        const progressDiv = line.querySelector('.waveform-progress');
+        if (progressDiv && audio.duration) {
+          const percent = (audio.currentTime / audio.duration) * 100;
+          progressDiv.style.width = `${percent}%`;
         }
       }
     };
-  }, [src]); // Only run this effect when the src changes
+  
+    const setupListeners = (id) => {
+      const audio = currentAudios[id];
+      if (audio) {
+        const handler = () => updateProgress(id);
+        audio.addEventListener("timeupdate", handler);
+        audio.addEventListener("ended", () => updateProgress(id));
+        audio._handler = handler; // store for cleanup
+      }
+    };
+  
+    Object.keys(currentAudios).forEach(setupListeners);
+  
+    return () => {
+      Object.keys(currentAudios).forEach((id) => {
+        const audio = currentAudios[id];
+        if (audio && audio._handler) {
+          audio.removeEventListener("timeupdate", audio._handler);
+        }
+      });
+    };
+  }, [activeGenre]);
   
 
-  return <div ref={waveformRef} />;
-};
-
-
-const SongCard = ({ song }) => {
   return (
-    <div className="bg-gray-900 text-white p-4 rounded-lg shadow flex gap-4">
-      <img src={song.image} alt={song.title} className="w-24 h-24 object-cover rounded" />
-      <div className="flex flex-col flex-grow">
-        <h3 className="text-xl font-semibold">
-          {song.id} — {song.title}
-        </h3>
-        <p className="text-sm text-gray-400">{song.genre}</p>
-        <p className="text-sm">Mood: {song.mood}</p>
-        <p className="text-sm">
-          Key: {song.key} | Tempo: {song.tempo} | Duration: {song.duration}
-        </p>
-        <AudioPlayer src={song.file} />
-      </div>
-    </div>
-  );
-};
+  
+   <div className="container">
+    <div className="sample-music">
 
-const SampleMusic = () => {
-  const [activeTab, setActiveTab] = useState('Techno');
-
-  return (
-    <div className="p-8 bg-black min-h-screen text-white">
-      <div className="flex gap-4 mb-8">
-        {GENRES.map((genre) => (
+      <h1 className="sample-title">Sample Music</h1>
+    <br /> <br />
+      <div className="pill-tabs">
+        {genres.map((genre) => (
           <button
             key={genre}
-            className={`px-4 py-2 rounded-full ${
-              activeTab === genre ? 'bg-green-500' : 'bg-gray-700'
-            }`}
-            onClick={() => setActiveTab(genre)}
+            className={`pill-tab ${activeGenre === genre ? "active" : ""}`}
+            onClick={() => setActiveGenre(genre)}
           >
             {genre}
           </button>
         ))}
       </div>
-      <div className="space-y-6">
-        {songs[activeTab].map((song) => (
-          <SongCard key={song.id} song={song} />
+
+      <div className="horizontal-list">
+        {sampleData[activeGenre].map((track) => (
+          <div className="music-card" key={track.id}>
+            <img
+              src={track.imageSrc}
+              alt={track.title}
+              className="music-thumb"
+            />
+            <div className="music-info">
+              <div className="music-meta">
+                <h3>{track.title}</h3>
+                <span>{track.genre}</span>
+              </div>
+              <div className="music-tags">
+                <span>{track.mood}</span>
+                <span>{track.key}</span>
+                <span>{track.bpm}</span>
+                <span>{track.duration}</span>
+              </div>
+              <div
+                className="waveform-placeholder"
+                ref={(el) =>
+                  (lineRefs.current[`${track.genre}-${track.id}`] = el)
+                }
+              >
+                <div className="waveform-progress" />
+              </div>
+            </div>
+            <div className="music-actions">
+              <audio
+                ref={(el) =>
+                  (audioRefs.current[`${track.genre}-${track.id}`] = el)
+                }
+                controls
+                src={track.audioSrc}
+              />
+              
+            
+            </div>
+          </div>
         ))}
       </div>
     </div>
+    </div>
   );
-};
+}
 
 export default SampleMusic;

@@ -1,0 +1,165 @@
+:root {
+    --black: #000;
+    --white: #fff;
+    --crimson: #dc143c;
+    --persimmon: #ff6347;
+    --card-bg: #121212;
+  }
+  
+  body, .sample-music {
+    margin: 0;
+    padding: 0;
+    background-color: var(--black);
+    color: var(--white);
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .sample-title {
+    text-align: center;
+    font-size: 2rem;
+    margin: 1rem 0;
+    background: linear-gradient(to right, var(--crimson), var(--persimmon), var(--crimson));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .pill-tabs {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    scrollbar-width: none;
+  }
+  
+  .pill-tabs::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .pill-tab {
+    padding: 0.7rem 1.6rem;
+    border-radius: 999px;
+    border: 1px solid #888;
+    background: #1c1c1c;
+    font-size: 1rem;
+    color: var(--white);
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .pill-tab.active {
+    background: linear-gradient(to right, var(--crimson), var(--persimmon), var(--crimson));
+    color: var(--black);
+    font-weight: bold;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  }
+  
+  .horizontal-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 2rem;
+  }
+  
+  .music-card {
+    display: flex;
+    align-items: center;
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.05);
+  }
+  
+  .music-thumb {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 1rem;
+  }
+  
+  .music-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .music-meta h3 {
+    margin: 0;
+    font-size: 1rem;
+  }
+  .music-meta span {
+    font-size: 0.9rem;
+    color: #aaa;
+  }
+  
+  .music-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    font-size: 0.85rem;
+    color: #ccc;
+  }
+  
+  .waveform-placeholder {
+    height: 30px;
+    background: linear-gradient(to right, #444 20%, #666 60%, #444 80%);
+    border-radius: 4px;
+    margin-top: 0.5rem;
+    opacity: 0.4;
+  }
+  
+  .music-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+    margin-left: 1rem;
+  }
+  
+  .icons span {
+    margin-left: 0.5rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+  }
+  .card-line {
+    height: 4px;
+    width: 100%;
+    margin-top: 8px;
+    border-radius: 4px;
+    background: linear-gradient(to right, var(--crimson), var(--persimmon), var(--crimson));
+    background-size: 200% 200%;
+    transition: background-position 0.3s ease;
+  }
+  
+  .card-line.playing {
+    animation: moveGradient 2s linear infinite;
+  }
+  
+  @keyframes moveGradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+  .waveform-placeholder {
+    height: 10px;
+    background: #333;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .waveform-progress {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(to right, var(--crimson), var(--persimmon), var(--crimson));
+    transition: width 0.3s ease;
+  }
+  
+ 
