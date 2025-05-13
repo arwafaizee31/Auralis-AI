@@ -10,7 +10,49 @@ import {
   IconButton,
 } from "@mui/material";
 import { Add, Remove } from "@mui/icons-material";
+import { styled } from "@mui/system";
 import "./FAQ.css";
+
+// Styled Accordion
+const StyledAccordion = styled(Accordion)(({ theme }) => ({
+  borderRadius: "20px",
+  marginBottom: "16px",
+  backgroundColor: "#ffffff",
+  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.08)",
+  "&::before": {
+    display: "none",
+  },
+}));
+
+// Styled Summary with reduced height and responsive padding
+const StyledAccordionSummary = styled(AccordionSummary)(({ theme }) => ({
+  minHeight: "40px !important",
+  padding: "8px 16px",
+  "&.Mui-expanded": {
+    minHeight: "40px",
+  },
+  "& .MuiTypography-root": {
+    fontWeight: 600,
+    fontSize: "clamp(0.9rem, 1vw, 1.05rem)",
+  },
+  justifyContent: "space-between",
+  alignItems: "center",
+}));
+
+// Responsive IconButton
+const CircleIconButton = styled(IconButton)(({ theme }) => ({
+  backgroundColor: "#000",
+  color: "#fff",
+  borderRadius: "50%",
+  width: "28px",
+  height: "28px",
+  "& svg": {
+    fontSize: "1rem",
+  },
+  "&:hover": {
+    backgroundColor: "#333",
+  },
+}));
 
 const faqs = [
   {
@@ -53,31 +95,42 @@ export default function FaqPage() {
   };
 
   return (
-    <Box className="faq-background">
+    <Box sx={{ py: 4, minHeight: "100vh", backgroundColor: "rgba(3,3,3,255)" }}>
       <Container maxWidth="md">
-        <Typography className="faq-heading">Frequently Asked Questions</Typography>
+        <div className="gradient-heading">Frequently Asked Questions</div>
 
         {faqs.map((faq, index) => (
           <Fade in={true} timeout={500 + index * 100} key={index}>
-            <Accordion
-              className="faq-accordion"
+            <StyledAccordion
               expanded={expandedIndex === index}
               onChange={handleToggle(index)}
             >
-              <AccordionSummary
-                className="faq-summary"
+              <StyledAccordionSummary
                 expandIcon={
-                  <IconButton className="faq-icon">
+                  <CircleIconButton>
                     {expandedIndex === index ? <Remove /> : <Add />}
-                  </IconButton>
+                  </CircleIconButton>
                 }
               >
-                <Typography className="faq-question">{faq.question}</Typography>
-              </AccordionSummary>
-              <AccordionDetails className="faq-details">
-                <Typography className="faq-answer">{faq.answer}</Typography>
+                <Typography className="faq-question">
+                  {faq.question}
+                </Typography>
+              </StyledAccordionSummary>
+              <AccordionDetails
+                sx={{
+                  padding: "0 16px 12px",
+                }}
+              >
+                <Typography
+                  className="faq-answer"
+                  sx={{
+                    fontSize: "clamp(0.85rem, 1vw, 1rem)",
+                  }}
+                >
+                  {faq.answer}
+                </Typography>
               </AccordionDetails>
-            </Accordion>
+            </StyledAccordion>
           </Fade>
         ))}
       </Container>

@@ -40,6 +40,36 @@ body {
   margin: 0 auto;
 }
 
+.feature-text {
+  text-align: center;
+  margin: 2rem auto; /* centers the block itself and adds spacing */
+  padding: 1rem;
+  max-width: 800px;
+  color: white;
+}
+
+.feature-text .tagline {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #bbb;
+  margin-bottom: 0.5rem;
+}
+
+.feature-text h1 {
+  font-size: 2.5rem;
+  margin: 1rem 0;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.feature-text p {
+  font-size: 1rem;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+
 /* Feature Cards */
 .feature-card {
   position: relative;
@@ -135,6 +165,7 @@ body {
   /* Adjust feature card height for smaller screens */
   .feature-card {
     height: 200px;
+    margin:4%;
   }
 
   /* Adjust font size for overlay text */
@@ -313,14 +344,31 @@ body {
     width: 90%;
   }
 
-  .music-intro-text,
-  .music-intro-images {
+  .music-intro-text {
     width: 100%; /* make full width */
     padding-bottom: 2rem;
   }
-.right-img3 img {
+
+  .music-intro-images {
+    width: 70%; /* make full width */
+    padding-bottom: 2rem;
+  }
+
+   .left-img img {
+    height: auto;
+    max-width: 100%;
+    margin-top: 4rem;
+  }
+  .right-img3 img {
   height: 100%;
   max-width :100%;
+  }
+}
+
+@media (max-width: 600px){
+  .music-intro-images {
+    width: 90%; /* make full width */
+    padding-bottom: 2rem;
 }
 }
 
@@ -329,8 +377,9 @@ body {
 /* Sample Music Section */
 .sample-music-section {
   padding: 4rem 2rem;
-  background-color: #111;
+  background-color: rgba(3,3,3,255);
   text-align: center;
+  margin-top: 10%;
 }
 
 .sample-music-title {
@@ -338,6 +387,7 @@ body {
   margin-bottom: 2rem;
   color: white;
   letter-spacing: 2px;
+  margin-bottom: 4%;
 }
 
 .sample-music-grid {
@@ -398,5 +448,81 @@ body {
 
   .sample-img {
     height: 120px;
+  }
+}
+
+
+/* Use Case Section */
+/* USE CASE SECTION */
+.use-case-section {
+  padding: 4rem 2rem;
+  background-color: rgba(3, 3, 3, 255);
+  color: white;
+  text-align: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.use-case-title {
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+  letter-spacing: 2px;
+  padding-bottom: 4%;
+}
+
+.use-case-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4rem;
+}
+
+.use-case-card {
+  background-color: rgba(3, 3, 3, 255);
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 0.5rem;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+
+.use-case-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1.2rem;
+}
+
+.use-case-heading {
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.use-case-desc {
+  font-size: 0.95rem;
+  color: #ddd;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .use-case-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .use-case-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .use-case-img {
+    height: 180px;
   }
 }

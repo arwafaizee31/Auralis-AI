@@ -42,22 +42,7 @@ const Navbar = () => {
             Sample Music
           </Link>
         </li>
-        <li>
-          <Link
-            to="/favourites"
-            style={{ color: "#fff", textDecoration: "none" }}
-          >
-            Favourites
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/downloads"
-            style={{ color: "#fff", textDecoration: "none" }}
-          >
-            Downloads
-          </Link>
-        </li>
+       
         <li>
           <Link to="/faq" style={{ color: "#fff", textDecoration: "none" }}>
             FAQ
@@ -69,8 +54,8 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <Link to="/about" style={{ color: "#fff", textDecoration: "none" }}>
-            About
+          <Link to="/blog" style={{ color: "#fff", textDecoration: "none" }}>
+            Blog
           </Link>
         </li>
       </ul>

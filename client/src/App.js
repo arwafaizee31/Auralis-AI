@@ -6,7 +6,7 @@ import GenerateMusic from './Pages/GenerateMusic';
 import SampleMusic from './Pages/SampleMusic';
 import FAQ from './Pages/FAQ';
 import Account from './Pages/Account';
-import About from './Pages/About';
+import Blog from './Pages/Blog';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -30,7 +30,7 @@ function App() {
         <Route path="/sample-music" element={<SampleMusic />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/account" element={<Account />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/blog" element={<Blog />} />
          {/* ✅ Add these routes */}
   <Route path="/login" element={<LoginForm />} />
   <Route path="/register" element={<RegisterForm />} />
