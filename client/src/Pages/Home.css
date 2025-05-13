@@ -3,6 +3,14 @@
   padding: 0;
   box-sizing: border-box;
 }
+:root {
+  --russian-violet: #340646ff;
+  --palatinate: #56024Dff;
+  --persimmon: #ED6124ff;
+  --crimson: #CF2741ff;
+  --amaranth-purple: #B50852ff;
+}
+
 
 body {
   background-color: rgba(3,3,3,255) !important;
@@ -197,7 +205,7 @@ body {
     text-transform: uppercase;
     margin-bottom: 10px;
    font-weight: 400;
-    background: linear-gradient(90deg, #8E98DF 0%, #CDA9E8 30%, #F2BBB7 100%);
+    background: linear-gradient(to right, var(--crimson), var(--persimmon), var(--crimson));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   
@@ -223,8 +231,9 @@ body {
 }
 
 .generate-button {
-  background-color: #fef08a;
-  color: #000;
+  background: linear-gradient(to right, var(--crimson), var(--persimmon), var(--crimson));
+  color: #fffbfb;
+  text-decoration: none;
   font-weight: bold;
   padding: 0.75rem 2rem;
   border: none;
