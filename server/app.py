@@ -11,6 +11,7 @@ from server.models import user_datastore
 from flask_security import SQLAlchemyUserDatastore
 from flask_wtf import CSRFProtect
 from server.routes.auth_routes import auth_bp
+from server import create_app
 # Create Flask app
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
