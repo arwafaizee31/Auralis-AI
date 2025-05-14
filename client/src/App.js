@@ -7,6 +7,7 @@ import SampleMusic from './Pages/SampleMusic';
 import FAQ from './Pages/FAQ';
 import Account from './Pages/Account';
 import Blog from './Pages/Blog';
+import Login from './Pages/Login';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -30,6 +31,7 @@ function App() {
         <Route path="/faq" element={<FAQ />} />
         <Route path="/account" element={<Account />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/login" element={<Login />} />
          {/* ✅ Add these routes */}
   
       </Routes>

@@ -111,7 +111,7 @@ const GenerateMusic = () => {
       <form onSubmit={handleSubmit}>
         <div style={{ display: 'flex', gap: '3rem', marginBottom: '2rem', alignItems: 'center' }}>
           <div>
-            <label style={{ fontWeight: 'bold' }}>Choose the length</label>
+            <label style={{ fontWeight: 'bold' }} className="tagline">Choose the length</label>
             <DurationSlider
               value={formData.duration}
               onChange={(newDuration) =>
@@ -124,7 +124,7 @@ const GenerateMusic = () => {
           </div>
 
           <div>
-            <label style={{ fontWeight: 'bold' }}>Select Tempo</label>
+            <label style={{ fontWeight: 'bold' }}className="tagline">Select Tempo</label>
             <TempoSelector
               selectedTempo={formData.tempo}
               onTempoChange={(tempo) => setFormData({ ...formData, tempo })}
