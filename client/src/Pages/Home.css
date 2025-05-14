@@ -57,11 +57,12 @@ body {
 }
 
 .feature-text .tagline {
-  font-size: 1rem;
+  font-size: 18px;
   text-transform: uppercase;
   letter-spacing: 2px;
   color: #bbb;
   margin-bottom: 0.5rem;
+  font-weight: 400;
 }
 
 .feature-text h1 {
