@@ -1,0 +1,35 @@
+.animated-title {
+  font-size: 3rem;
+  font-family: "Cutive Mono", monospace;
+  color: white;
+  display: inline-block;
+}
+
+.animated-title span {
+  display: inline-block;
+  opacity: 0;
+  animation: letter-glow 0.7s ease forwards;
+}
+
+@keyframes letter-glow {
+  0% {
+    opacity: 0;
+    text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.1);
+  }
+  66% {
+    opacity: 1;
+    text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.9);
+  }
+  77% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.7;
+    text-shadow: 0px 0px 20px rgba(255, 255, 255, 0);
+  }
+}
+
+.animated-title span.space {
+  width: 0.4em; /* or just let the non-breaking space handle it */
+  display: inline-block;
+}

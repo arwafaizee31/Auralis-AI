@@ -1,7 +1,8 @@
 import React from 'react';
 import './HeroSection.css';
 import backgroundImage from '../assets/herosection_image.jpg'; // ✅ correct path
-
+import AnimatedText from "./AnimatedText";
+import '../styles/AnimatedText.css';
 const HeroSection = () => {
   return (
     <div
@@ -10,7 +11,7 @@ const HeroSection = () => {
     >
       
       <div className="content">
-        <h1>Welcome to Auralis: The Musical AI</h1>
+        <AnimatedText text="Welcome to Auralis: The Musical AI" />
         <p>Feel free to explore and generate amazing music through the power of AI!</p>
           <button className="hero-button">Get Started</button>
       </div>
