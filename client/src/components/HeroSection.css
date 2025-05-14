@@ -44,7 +44,7 @@
 
 .content {
   z-index: 1; /* Ensure content is above overlay */
-  max-width: 800px;
+  max-width: 900px;
   margin-top: 10rem;
   padding: 0 1rem; /* Add padding for small screens */
 }

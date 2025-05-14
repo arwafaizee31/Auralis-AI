@@ -1,7 +1,8 @@
 import React from 'react';
 import './HeroSection.css';
-import backgroundImage from '../assets/herosection_image.jpg';
-
+import backgroundImage from '../assets/herosection_image.jpg'; // ✅ correct path
+import AnimatedText from "./AnimatedText";
+import '../styles/AnimatedText.css';
 const HeroSection = () => {
   return (
     <div
@@ -9,9 +10,7 @@ const HeroSection = () => {
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <div className="content">
-        <h1 className="typed-text-container">
-          <span className="typed-text">Welcome to my website!</span>
-        </h1>
+        <AnimatedText text="Welcome to Auralis: The Musical AI" />
         <p>Feel free to explore and generate amazing music through the power of AI!</p>
         <button className="hero-button">Get Started</button>
       </div>
