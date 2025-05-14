@@ -1,10 +1,14 @@
 /* src/components/Navbar.css */
 
 .navbar {
-    background-color: rgba(4, 11, 19, 1);
-    padding: 1rem 2rem;
-    color: white;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background-color:rgb(86, 2, 77);
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    /* color: white; */
+    /* border-bottom: 1px solid rgba(255, 255, 255, 0.05); */
+   
   }
   
   .navbar-list {
@@ -27,4 +31,12 @@
   .nav-link:hover {
     color: #8e98df;
   }
-  
+  .navbarLogo{
+    height: 35px;
+  }
+  .navbarTitles{
+    color: white;
+  }
+  .navbarTitles:hover {
+  color: #ED6124;
+}
