@@ -13,8 +13,7 @@ import Footer from './components/Footer';
 import './styles/main.css'; // Your custom CSS
 
 import { AuthProvider } from './context/AuthContext';
-import LoginForm from './components/LoginForm';
-import RegisterForm from './components/RegisterForm';
+
 
 function App() {
   return (
@@ -32,8 +31,7 @@ function App() {
         <Route path="/account" element={<Account />} />
         <Route path="/blog" element={<Blog />} />
          {/* ✅ Add these routes */}
-  <Route path="/login" element={<LoginForm />} />
-  <Route path="/register" element={<RegisterForm />} />
+  
       </Routes>
 
       {/* Footer */}

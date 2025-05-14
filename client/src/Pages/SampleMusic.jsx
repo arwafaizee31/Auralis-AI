@@ -181,7 +181,7 @@ const sampleData = {
   Jazz: [
     {
       id: 1,
-      title: "Smooth Jazz Nights",
+      title: "Sample 1",
       mood: "Chill, Classy",
       duration: "4:20",
       bpm: "100 BPM",
@@ -192,7 +192,7 @@ const sampleData = {
     },
     {
       id: 2,
-      title: "Smooth Jazz Nights",
+      title: "Sample 2",
       mood: "Chill, Classy",
       duration: "4:20",
       bpm: "100 BPM",
@@ -203,7 +203,7 @@ const sampleData = {
     },
     {
       id: 3,
-      title: "Smooth Jazz Nights",
+      title: "Sample 3",
       mood: "Chill, Classy",
       duration: "4:20",
       bpm: "100 BPM",
@@ -214,7 +214,7 @@ const sampleData = {
     },
     {
       id: 4,
-      title: "Smooth Jazz Nights",
+      title: "Sample 4",
       mood: "Chill, Classy",
       duration: "4:20",
       bpm: "100 BPM",
@@ -225,7 +225,7 @@ const sampleData = {
     },
     {
       id: 5,
-      title: "Smooth Jazz Nights",
+      title: "Sample 5",
       mood: "Chill, Classy",
       duration: "4:20",
       bpm: "100 BPM",
