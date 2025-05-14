@@ -346,7 +346,7 @@ function SampleMusic() {
                 }
                 controls
                 src={track.audioSrc}
-              />
+              className="sampleMusicAudio" />
               
             
             </div>
