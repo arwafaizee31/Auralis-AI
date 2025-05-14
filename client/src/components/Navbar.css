@@ -1,42 +1,103 @@
-/* src/components/Navbar.css */
+/* Layout and base styles */
+.mainNavbar {
+  background-color: #340646;
+  /* box-shadow:inset 0 -4px 6px rgba(237, 97, 36, 0.75); */
+  padding: 0.5rem 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
 
-.navbar {
-    background-color:rgb(86, 2, 77);
-    padding-top: .5rem;
-    padding-bottom: .5rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    /* color: white; */
-    /* border-bottom: 1px solid rgba(255, 255, 255, 0.05); */
-   
-  }
-  
-  .navbar-list {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .nav-link {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s;
-  }
-  
-  .nav-link:hover {
-    color: #8e98df;
-  }
-  .navbarLogo{
-    height: 35px;
-  }
-  .navbarTitles{
-    color: white;
-  }
-  .navbarTitles:hover {
+.navbarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo */
+.navbarLogo {
+  height: 35px;
+  margin-right: 20px;
+}
+
+/* Menu toggle (hamburger) */
+.menuToggle {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: white;
+  display: none;
+  cursor: pointer;
+}
+
+/* Navigation list (desktop) */
+.navbar-list {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  flex: 2;
+}
+
+/* Nav links */
+.navbarTitles {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbarTitles:hover {
   color: #ED6124;
+}
+.registerButton{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+/* Responsive styles */
+@media (max-width: 768px) {
+  .menuToggle {
+    display: block;
+  }
+
+  .navbar-list {
+    display: none;
+    flex-direction: column;
+    background-color: #340646;
+    position: absolute;
+    top: 60px; /* Adjust based on navbar height */
+    right: 0;
+    width: 100%;
+    padding: 1rem;
+    z-index: 99;
+     
+  
+  }
+
+  .navbar-list.open {
+    display: flex;
+  }
+
+  .navbar-list li {
+    padding: 10px 0;
+    text-align: center;
+  }
+    .registerButton {
+    margin: auto;
+  }
+}
+/* Navbar container */
+.navbarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+/* Make Register go to right on large screens */
+.registerButton {
+  margin-left: auto;
 }

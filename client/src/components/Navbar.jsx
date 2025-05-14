@@ -1,76 +1,49 @@
 // src/components/Navbar.jsx
-import React, { useContext } from "react";
-import { Link } from "react-router-dom"; // Link component for navigation
-import AuthContext from "../context/AuthContext"; // Import the context
+import React, { useContext, useState } from "react";
+import { Link } from "react-router-dom";
+import AuthContext from "../context/AuthContext";
 import "./Navbar.css";
 
 const Navbar = () => {
-  const { authStatus } = useContext(AuthContext); // Use the authStatus from context
-  return (
-    <nav
-      style={{
-       
-         paddingTop: ".5rem",
-    paddingBottom: ".5rem",
-    paddingLeft: "1rem",
-    paddingRight:"1rem",
-        backgroundColor:"#340646",
-        // color: "#fff",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
+  const { authStatus } = useContext(AuthContext);
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // Toggle state
 
-         
-      }} className="mainNavbar"
-    >
-    <ul style={{ listStyleType: "none", gap: "20px" }}><li><img src="/primaryLogo2.png" alt="Auralis logo" className="navbarLogo"></img></li></ul>
-      <ul
-        style={{ listStyleType: "none", gap: "20px", display: "flex" }}
-        className="navbar-list"
-      >
-        <li>
-          <Link to="/" style={{ textDecoration: "none" }} className="navbarTitles">
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/gen-music"
-            style={{  textDecoration: "none" }}
-           className="navbarTitles">
-            Generate Music
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/sample-music"
-            style={{  textDecoration: "none" }}
-           className="navbarTitles">
-            Sample Music
-          </Link>
-        </li>
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  return (
+    <nav className="mainNavbar">
+      <div className="navbarContainer">
+       <div className="navbarLeft">
+        <img src="/primaryLogo2.png" alt="Auralis logo" className="navbarLogo" />
+</div>
        
-        <li>
-          <Link to="/faq" style={{ textDecoration: "none" }} className="navbarTitles">
-            FAQ
-          </Link>
-        </li>
-        <li>
-          <Link to="/account" style={{ textDecoration: "none" }} className="navbarTitles">
-            Account
-          </Link>
-        </li>
-        <li>
-          <Link to="/blog" style={{ textDecoration: "none" }} className="navbarTitles">
-            Blog
-          </Link>
-        </li>
-      </ul>
-      <ul style={{ listStyleType: "none", gap: "20px" }}>
-     <li className="navbarTitles">Register </li>
-      </ul>
+
+        {/* Menu items */}
+        <ul className={`navbar-list ${isMenuOpen ? "open" : ""}`}>
+          <li><Link to="/" className="navbarTitles">Home</Link></li>
+          <li><Link to="/gen-music" className="navbarTitles">Generate Music</Link></li>
+          <li><Link to="/sample-music" className="navbarTitles">Sample Music</Link></li>
+          <li><Link to="/faq" className="navbarTitles">FAQ</Link></li>
+          <li><Link to="/account" className="navbarTitles">Account</Link></li>
+          <li><Link to="/blog" className="navbarTitles">Blog</Link></li>
+          <li className="navbarTitles registerButton" >Register</li>
+          </ul>
+           <div className="navbarRight">
+           
+          
+          
+           {/* Toggle button for small screens */}
+        <button className="menuToggle" onClick={toggleMenu}>
+          ☰
+        </button>
+          </div>
+
+
+      </div>
     </nav>
-  )
+  );
 };
 
 export default Navbar;
