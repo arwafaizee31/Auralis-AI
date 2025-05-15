@@ -14,6 +14,10 @@ import img1 from '../assets/editor.jpg';
 import img2 from '../assets/group.jpg';
 import img3 from '../assets/performer.jpg';
 
+import usecase1 from '../assets/use_case_1.jpg'
+import usecase2 from '../assets/use_case_2.jpg'
+import usecase3 from '../assets/use_case_3.jpg'
+
 import sample1 from '../assets/sample1.jpg';
 import sample2 from '../assets/sample2.jpg';
 import sample3 from '../assets/sample3.jpg';
@@ -171,7 +175,7 @@ const Home = () => {
   <h2 className="use-case-title">Use Cases</h2>
   <div className="use-case-grid">
     <div className="use-case-card">
-      <img src={img1} alt="Editor" className="use-case-img" />
+      <img src={usecase1} alt="Editor" className="use-case-img" />
       <h3 className="use-case-heading">For Music Creators</h3>
       <p className="use-case-desc">
         Instantly generate unique backing tracks, beats, and compositions for your songs.
@@ -180,7 +184,7 @@ const Home = () => {
     </div>
 
     <div className="use-case-card">
-      <img src={img2} alt="Group Collaboration" className="use-case-img" />
+      <img src={usecase2} alt="Group Collaboration" className="use-case-img" />
       <h3 className="use-case-heading">For Teams & Projects</h3>
       <p className="use-case-desc">
         Use AI-generated music in team videos, educational projects, podcasts, and game dev
@@ -189,7 +193,7 @@ const Home = () => {
     </div>
 
     <div className="use-case-card">
-      <img src={img3} alt="Performer" className="use-case-img" />
+      <img src={usecase3} alt="Performer" className="use-case-img" />
       <h3 className="use-case-heading">For Performers</h3>
       <p className="use-case-desc">
         Craft background scores for live performances or create ambient sets for shows,

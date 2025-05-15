@@ -1,7 +1,7 @@
 /* src/components/Footer.css */
 
 .footer {
-    background-color: rgba(4, 11, 19, 1);
+    background-color: rgba(3,3,3,255) !important;
     color: white;
     padding: 1.5rem 2rem;
     text-align: center;

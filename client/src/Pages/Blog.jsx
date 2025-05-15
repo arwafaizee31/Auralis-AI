@@ -4,14 +4,15 @@ import musicPlayerImg from '../assets/blog1.jpg';
 import soundrawSignImg from '../assets/blog2.jpg';
 import phoneImg from '../assets/blog3.jpg';
 
-import img1 from '../assets/editor.jpg';
-import img2 from '../assets/group.jpg';
-import img3 from '../assets/performer.jpg';
+import usecase1 from '../assets/use_case_1.jpg';
+import usecase2 from '../assets/use_case_2.jpg';
+import usecase3 from '../assets/use_case_3.jpg';
+
 
 const Blog = () => {
   return (
     <div className="blog-container">
-      <h2 className="blog-title">Why Choose SOUNDRAW for Your Institution?</h2>
+      <h2 className="blog-title">Why Choose Auralis for Production?</h2>
 
       {/* Section 1: Image Left, Text Right */}
       <div className="blog-section">
@@ -20,15 +21,14 @@ const Blog = () => {
           <h3>FAST AND TRUSTED</h3>
           <h2>Easily Generate High-Quality Songs</h2>
           <p>
-            SOUNDRAW makes it easy to generate music that perfectly matches your
+            Auralis makes it easy to generate music that perfectly matches your
             vision. Simply select your desired tags and generate tracks with just a few
             clicks. Customize and refine your music effortlessly, even in fast-paced
             learning environments.
           </p>
           <p>
-            Trusted by renowned artists with millions of listeners and content creators
-            worldwide, SOUNDRAW delivers high-quality beats designed to support you and
-            elevate your classes.
+            Auralis is looking to expand the presence,
+            trust, and strength of AI Music in the academic field.
           </p>
         </div>
       </div>
@@ -39,12 +39,12 @@ const Blog = () => {
           <h3>AVOID COPYRIGHT STRIKES</h3>
           <h2>Ethical AI</h2>
           <p>
-            All of our training data is created by our own team of in-house composers,
+            All of our training data is created by our own team ,
             so you can safely use our songs for educational activities without worrying
             about copyright issues or lawsuits.
           </p>
           <p>
-            Together with Keio University, SOUNDRAW is looking to expand the presence,
+            Auralis is looking to expand the presence,
             trust, and strength of AI Music in the academic field.
           </p>
         </div>
@@ -58,7 +58,7 @@ const Blog = () => {
           <h3>WORLDWIDE DISTRIBUTION</h3>
           <h2>Imagine. Create. Use.</h2>
           <p>
-            Music made with SOUNDRAW is completely royalty-free, allowing you to
+            Music made with Auralis is completely royalty-free, allowing you to
             distribute it with your content worldwide freely without any legal concerns.
           </p>
           <p>
@@ -74,7 +74,7 @@ const Blog = () => {
         <h2 className="use-case-title">Use Cases</h2>
         <div className="use-case-grid">
           <div className="use-case-card">
-            <img src={img1} alt="Editor" className="use-case-img" />
+            <img src={usecase1} alt="Editor" className="use-case-img" />
             <h3 className="use-case-heading">For Music Creators</h3>
             <p className="use-case-desc">
               Instantly generate unique backing tracks, beats, and compositions for your songs.
@@ -83,7 +83,7 @@ const Blog = () => {
           </div>
       
           <div className="use-case-card">
-            <img src={img2} alt="Group Collaboration" className="use-case-img" />
+            <img src={usecase2} alt="Group Collaboration" className="use-case-img" />
             <h3 className="use-case-heading">For Teams & Projects</h3>
             <p className="use-case-desc">
               Use AI-generated music in team videos, educational projects, podcasts, and game dev
@@ -92,7 +92,7 @@ const Blog = () => {
           </div>
       
           <div className="use-case-card">
-            <img src={img3} alt="Performer" className="use-case-img" />
+            <img src={usecase3} alt="Performer" className="use-case-img" />
             <h3 className="use-case-heading">For Performers</h3>
             <p className="use-case-desc">
               Craft background scores for live performances or create ambient sets for shows,
