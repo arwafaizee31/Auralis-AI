@@ -7,7 +7,7 @@ server/venv/
 # Python cache
 __pycache__/
 server/__pycache__/
-
+x   
 # Other system files
 .DS_Store
 .env

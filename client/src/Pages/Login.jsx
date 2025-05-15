@@ -1,26 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import React, { useContext } from "react";
-import AuthContext from "../context/AuthContext";
-
-const { setIsAuthenticated } = useAuth();
-const navigate = useNavigate();
+import AuthContext from '../context/AuthContext'; // 👈 Import context
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { setIsAuthenticated } = useAuth();
-  const navigate = useNavigate();
+  
+  const navigate = useNavigate(); // ✅ Must be inside component
+  const { setIsAuthenticated } = useContext(AuthContext); // ✅ Correct hook usage
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('http://localhost:5000/login', { email, password }, { withCredentials: true });
+      const response = await axios.post(
+        'http://localhost:5000/login',
+        { email, password },
+        { withCredentials: true }
+      );
       alert('Login successful!');
       setIsAuthenticated(true);
       navigate('/gen-music');
     } catch (error) {
       alert('Login failed');
+      console.error(error);
     }
   };
 
