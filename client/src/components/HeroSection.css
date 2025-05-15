@@ -29,7 +29,7 @@
 }
 
 .hero-button {
-  background-color: #fef08a;
+  background: linear-gradient(to right, #9b2d60, #ff8c42, #9b2d60);
   color: #000;
   font-weight: bold;
   padding: 0.75rem 2rem;

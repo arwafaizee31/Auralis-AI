@@ -5,20 +5,20 @@ import { checkAuth } from '../utils/api';
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [authStatus, setAuthStatus] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
     const check = async () => {
       const data = await checkAuth();
       if (data.message === 'User is authenticated') {
-        setAuthStatus(true);
+        setIsAuthenticated(true);
       }
     };
     check();
   }, []);
 
   return (
-    <AuthContext.Provider value={{ authStatus, setAuthStatus }}>
+    <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated }}>
       {children}
     </AuthContext.Provider>
   );
