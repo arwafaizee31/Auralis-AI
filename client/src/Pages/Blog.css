@@ -22,6 +22,7 @@
   gap: 2rem;
 }
 
+
 .blog-image {
   width: 100%;
   height: auto;
@@ -56,6 +57,26 @@
   line-height: 1.6;
   margin-bottom: 1rem;
 }
+
+.blog-button-container {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.blog-action-button {
+  display: inline-block;
+  background: linear-gradient(to right, var(--crimson), var(--persimmon), var(--crimson));
+  color: #fffbfb;
+  padding: 12px 28px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+
+
 
 /* 👉 Tablet + Laptop + Desktop (≥ 768px) */
 @media (min-width: 768px) {

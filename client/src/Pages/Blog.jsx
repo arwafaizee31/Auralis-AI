@@ -1,5 +1,6 @@
 import React from 'react';
 import './Blog.css';
+import { Link } from 'react-router-dom';
 import musicPlayerImg from '../assets/blog1.jpg';
 import soundrawSignImg from '../assets/blog2.jpg';
 import phoneImg from '../assets/blog3.jpg';
@@ -7,7 +8,6 @@ import phoneImg from '../assets/blog3.jpg';
 import usecase1 from '../assets/use_case_1.jpg';
 import usecase2 from '../assets/use_case_2.jpg';
 import usecase3 from '../assets/use_case_3.jpg';
-
 
 const Blog = () => {
   return (
@@ -39,7 +39,7 @@ const Blog = () => {
           <h3>AVOID COPYRIGHT STRIKES</h3>
           <h2>Ethical AI</h2>
           <p>
-            All of our training data is created by our own team ,
+            All of our training data is created by our own team,
             so you can safely use our songs for educational activities without worrying
             about copyright issues or lawsuits.
           </p>
@@ -69,6 +69,13 @@ const Blog = () => {
         </div>
       </div>
 
+      {/* Button between blog sections and use cases */}
+      <div className="blog-button-container" style={{ textAlign: 'center', margin: '40px 0' }}>
+        <Link to="/gen-music" className="blog-action-button">
+          Start Creating
+        </Link>
+      </div>
+
       {/* Use Case Section */}
       <div className="use-case-section">
         <h2 className="use-case-title">Use Cases</h2>
@@ -81,7 +88,7 @@ const Blog = () => {
               Focus on creativity while AI handles the groundwork.
             </p>
           </div>
-      
+
           <div className="use-case-card">
             <img src={usecase2} alt="Group Collaboration" className="use-case-img" />
             <h3 className="use-case-heading">For Teams & Projects</h3>
@@ -90,7 +97,7 @@ const Blog = () => {
               without worrying about licensing issues.
             </p>
           </div>
-      
+
           <div className="use-case-card">
             <img src={usecase3} alt="Performer" className="use-case-img" />
             <h3 className="use-case-heading">For Performers</h3>

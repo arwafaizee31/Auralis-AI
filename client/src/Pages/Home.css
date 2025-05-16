@@ -51,7 +51,6 @@ body {
 .feature-text {
   text-align: center;
   margin: 2rem auto; /* centers the block itself and adds spacing */
-  padding: 1rem;
   max-width: 800px;
   color: white;
 }

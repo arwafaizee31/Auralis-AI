@@ -132,7 +132,9 @@ const Home = () => {
             music to use in your songs, projects and videos. Distribute your music
             anywhere and earn money on the royalties forever.
           </p>
-          <button className="generate-button">Start Generating</button>
+          <Link to="/gen-music">
+  <button className="generate-button">Start Generating</button>
+</Link>
         </div>
 
         <div className="music-intro-images">
@@ -168,6 +170,11 @@ const Home = () => {
             </div>
           ))}
         </div>
+        <div>
+  <Link to="/sample-music">
+    <button className="generate-button">Explore More</button>
+  </Link>
+</div>
       </div>
     
     {/* Use Case Section */}
